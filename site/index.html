@@ -3,33 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aarya's personal portfolio">
   <title>Aarya | Portfolio</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #0f172a; color: #e2e8f0; }
-    header { text-align: center; padding: 80px 20px; background: #1e293b; }
-    h1 { font-size: 2.5rem; margin: 0; }
-    section { max-width: 700px; margin: 40px auto; padding: 0 20px; }
-    h2 { color: #38bdf8; }
-    footer { text-align: center; padding: 20px; color: #94a3b8; }
+    :root { --bg: #0b1020; --card: #151b30; --text: #e2e8f0; --muted: #94a3b8; --accent: #38bdf8; --accent2: #a78bfa; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 14px 8%; background: rgba(11, 16, 32, 0.85); backdrop-filter: blur(8px); border-bottom: 1px solid #1e2742; }
+    .logo { font-weight: 700; font-size: 1.2rem; color: var(--accent); }
+    nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+    nav a { color: var(--text); text-decoration: none; font-size: 0.95rem; }
+    nav a:hover { color: var(--accent); }
+
+    .hero { text-align: center; padding: 110px 20px 90px; background: radial-gradient(circle at top, #1b2a55 0%, var(--bg) 70%); }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0 0 10px; }
+    .grad { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { color: var(--muted); font-size: 1.15rem; max-width: 560px; margin: 0 auto 28px; }
+    .btn { display: inline-block; padding: 12px 26px; border-radius: 999px; text-decoration: none; font-weight: 600; margin: 6px; }
+    .btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent2)); color: #0b1020; }
+    .btn-outline { border: 1px solid var(--accent); color: var(--accent); }
+
+    section { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+    h2 { font-size: 1.8rem; margin: 0 0 24px; }
+    h2::after { content: ""; display: block; width: 50px; height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); margin-top: 8px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { padding: 8px 16px; border-radius: 999px; background: var(--card); border: 1px solid #243052; font-size: 0.95rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card { background: var(--card); border: 1px solid #243052; border-radius: 16px; padding: 22px; transition: transform 0.2s, border-color 0.2s; }
+    .card:hover { transform: translateY(-6px); border-color: var(--accent); }
+    .card h3 { margin: 0 0 8px; color: var(--accent); }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+    .flow { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .step { padding: 10px 18px; border-radius: 10px; background: var(--card); border: 1px solid #243052; font-weight: 600; }
+    .arrow { color: var(--accent); }
+    .note { text-align: center; color: var(--muted); }
+
+    .contact a { color: var(--accent); text-decoration: none; }
+    footer { text-align: center; padding: 30px 20px; color: var(--muted); border-top: 1px solid #1e2742; font-size: 0.9rem; }
+
+    @media (max-width: 600px) { nav { padding: 12px 5%; } nav ul { gap: 14px; } }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Hi, I'm Aarya</h1>
-    <p>BTech CSE Student | Content Creator | Future Marketer</p>
+  <nav>
+    <div class="logo">Aarya</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#pipeline">Pipeline</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <h1>Hi, I'm <span class="grad">Aarya</span></h1>
+    <p>BTech CSE student &middot; Content creator &middot; Future marketer</p>
+    <a class="btn btn-primary" href="#projects">View Projects</a>
+    <a class="btn btn-outline" href="#contact">Contact Me</a>
   </header>
-  <section>
+
+  <section id="about">
     <h2>About</h2>
-    <p>Write 2-3 lines about yourself here.</p>
+    <p>Write 2-3 lines about yourself here: what you study, what you enjoy creating, and where you want to go in your career.</p>
   </section>
-  <section>
+
+  <section id="skills">
     <h2>Skills</h2>
-    <p>Python, Data Science, Content Creation, Branding</p>
+    <div class="chips">
+      <span class="chip">Python</span>
+      <span class="chip">Data Science</span>
+      <span class="chip">Machine Learning</span>
+      <span class="chip">Git and GitHub</span>
+      <span class="chip">CI/CD</span>
+      <span class="chip">Content Creation</span>
+      <span class="chip">Personal Branding</span>
+    </div>
   </section>
-  <section>
+
+  <section id="projects">
     <h2>Projects</h2>
-    <p>Electricity Consumption Prediction, Flood Prediction</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Electricity Consumption Prediction</h3>
+        <p>Data science project that predicts household electricity usage and bills using machine learning.</p>
+      </div>
+      <div class="card">
+        <h3>Urban Flood Prediction</h3>
+        <p>Analysis and prediction of urban flooding and waterlogging in India.</p>
+      </div>
+      <div class="card">
+        <h3>Automated CI/CD Pipeline</h3>
+        <p>This website. Every commit is linted and deployed automatically with GitHub Actions.</p>
+      </div>
+    </div>
   </section>
-  <footer>Deployed automatically with GitHub Actions</footer>
+
+  <section id="pipeline">
+    <h2>How This Site Is Deployed</h2>
+    <div class="flow">
+      <span class="step">Git Push</span><span class="arrow">&rarr;</span>
+      <span class="step">Lint (CI)</span><span class="arrow">&rarr;</span>
+      <span class="step">Deploy (CD)</span><span class="arrow">&rarr;</span>
+      <span class="step">Live Site</span>
+    </div>
+    <p class="note">Every commit to the main branch is checked and published automatically. No manual steps.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/">your-linkedin-link</a></p>
+  </section>
+
+  <footer>&copy; 2026 Aarya &middot; Deployed automatically with GitHub Actions</footer>
 </body>
 </html>
